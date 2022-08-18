@@ -12,8 +12,8 @@ namespace Club.Domain.Entities
 
         //Relationships
 
-        public List<User> Users { get; set; }
-        public List<Entertainment> Entertainments { get; set; }
+        public User User { get; set; }
+        public Entertainment Entertainment { get; set; }
 
     }
 }

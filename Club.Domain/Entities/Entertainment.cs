@@ -13,5 +13,11 @@ namespace Club.Domain.Entities
         public DateTime Production_date { get; set; }
         public double Rating { get; set; }
         public string Description { get; set; }
+
+
+        //Relationships
+
+        public List<Completed> Commpleteds { get; set; }
+        public List<Uncompleted> Uncommpleteds { get; set; }
     }
 }
