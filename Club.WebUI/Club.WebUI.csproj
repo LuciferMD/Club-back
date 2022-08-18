@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Club.Application\Club.Application.csproj" />
     <ProjectReference Include="..\Club.Domain\Club.Domain.csproj" />
+    <ProjectReference Include="..\Club.Infastructure\Club.Infastructure.csproj" />
   </ItemGroup>
 
 </Project>

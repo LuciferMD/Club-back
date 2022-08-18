@@ -9,5 +9,11 @@ namespace Club.Domain.Entities
         public Guid Id { get; set; }
         public Guid User_id { get; set; }
         public Guid Enter_id { get; set; }
+
+        //Relationships
+
+        public List<User> Users { get; set; }
+        public List<Entertainment> Entertainments { get; set; }
+
     }
 }
