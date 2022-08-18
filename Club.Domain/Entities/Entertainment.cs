@@ -19,5 +19,6 @@ namespace Club.Domain.Entities
 
         public List<Completed> Commpleteds { get; set; }
         public List<Uncompleted> Uncommpleteds { get; set; }
+        public List<Review> Reviews { get; set; }
     }
 }
