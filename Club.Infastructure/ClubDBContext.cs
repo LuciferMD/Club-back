@@ -26,7 +26,7 @@ namespace Club.Infastructure.Data
             modelBuilder.Entity<Review>().HasOne(r => r.User).WithMany(u => u.Reviews).HasForeignKey(r => r.User_id);
             modelBuilder.Entity<Review>().HasOne(r => r.Entertainment).WithMany(e => e.Reviews).HasForeignKey(r => r.Enter_id);
 
-            
+            modelBuilder.Entity<UserInfo>().HasNoKey();
 
             base.OnModelCreating(modelBuilder);
         }
@@ -38,5 +38,7 @@ namespace Club.Infastructure.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+               => optionsBuilder.UseNpgsql("Server=127.0.0.1;Port=5432;Database=Club;UID=postgres;PWD=1234");
     }
 }

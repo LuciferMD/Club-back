@@ -2,6 +2,7 @@ using Club.Infastructure.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -14,10 +15,12 @@ namespace Club.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             //DbContext configuration
-            services.AddDbContext<ClubDBContext>();
+            //services.AddDbContext<ClubDBContext>();
 
             services.AddSwaggerGen();
             services.AddControllers();
+
+            services.AddDbContext<ClubDBContext>(); //to do
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,11 +48,7 @@ namespace Club.WebUI
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
-            app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-                options.RoutePrefix = string.Empty;
-            });
+
         }
     }
 }
