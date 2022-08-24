@@ -1,6 +1,8 @@
+using AutoMapper;
 using Club.Application.Services;
 using Club.Infastructure.Data;
 using Club.Infastructure.Data.Repositories;
+using Club.WebUI.Mapping;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +25,14 @@ namespace Club.WebUI
             services.AddControllers();
 
             services.AddDbContext<ClubDBContext>(); //to do
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new UserProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddTransient<EFUserRepository>();
             services.AddTransient<UserService>();
