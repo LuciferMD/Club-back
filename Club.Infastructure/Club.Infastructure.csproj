@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Club.Domain\Club.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>

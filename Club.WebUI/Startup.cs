@@ -1,4 +1,6 @@
+using Club.Application.Services;
 using Club.Infastructure.Data;
+using Club.Infastructure.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +23,10 @@ namespace Club.WebUI
             services.AddControllers();
 
             services.AddDbContext<ClubDBContext>(); //to do
+
+            services.AddTransient<EFUserRepository>();
+            services.AddTransient<UserService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
